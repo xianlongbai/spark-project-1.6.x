@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="spark-csv_2.11-1.1.0">
+    <CLASSES>
+      <root url="jar://D:/var/spark-csv_2.11-1.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
