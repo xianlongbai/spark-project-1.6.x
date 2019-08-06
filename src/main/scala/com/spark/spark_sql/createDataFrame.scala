@@ -10,6 +10,9 @@ import org.apache.spark.sql.types._
 
 /**
   * Created by root on 2019/7/15.
+  *
+  * 如果直接用toDF()而不指定列名字，那么默认列名为"_1", "_2", ...
+  *
   */
 
 case class Person(name: String, age: Int)
@@ -63,11 +66,18 @@ object createDataFrame {
 
 
 
-    val schema2 = StructType(List(
-      StructField("name", StringType, true),
-      StructField("age", IntegerType, true),
-      StructField("phone", LongType, true)
-    ))
+//    val schema2 = StructType(List(
+//      StructField("name", StringType, true),
+//      StructField("age", IntegerType, true),
+//      StructField("phone", LongType, true)
+//    ))
+
+      val schema2 = StructType(
+        StructField("name", StringType, true) ::
+        StructField("age", IntegerType, true) ::
+        StructField("phone", LongType, true) ::  Nil
+      )
+
     val dataList = new util.ArrayList[Row]()
     dataList.add(Row("ming",20,15552211521L))
     dataList.add(Row("hong",19,13287994007L))

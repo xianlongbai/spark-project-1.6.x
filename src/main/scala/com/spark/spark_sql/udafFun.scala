@@ -42,8 +42,14 @@ object udafFun{
     sqlContext.sql("select name,sex,age,strLen(name) as size from student").show(false)
 
     //定义udaf函数：聚合操作
-    sqlContext.udf.register("strCount,)
+    val dfRdd: DataFrame = sqlContext.read.json("udaf.txt")
+    dfRdd.registerTempTable("persion")
+    sqlContext.udf.register("u_avg",AverageUserDefinedAggregateFunction)
 
+    // 将整张表看做是一个分组对求所有人的平均年龄
+    sqlContext.sql("select count(1) as count, u_avg(age) as avg_age from persion").show()
+    // 按照性别分组求平均年龄
+    sqlContext.sql("select sex, count(1) as count, u_avg(age) as avg_age from persion group by sex").show()
 
 
   }

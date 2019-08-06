@@ -25,6 +25,7 @@ object Createdf{
     val head: Array[Row] = jsonRDD.head(2)  //读取前几行
     val etlrdd: DataFrame = ssc.sql("select * from people where age > 20").cache()
     jsonRDD.show(2,false)
+    val sss: DataFrame = etlrdd.limit(100)
     etlrdd.write.partitionBy("age").mode(SaveMode.Overwrite).format("parquet").save("D:\\tmp\\spark_sql\\parquet")
     //仅支持hiveContext
     //etlrdd.write.mode(SaveMode.Overwrite).format("orc").save("D:\\tmp\\spark_sql\\orc")

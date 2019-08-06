@@ -31,6 +31,7 @@ object mapTest {
 
     val count = sc.accumulator(0)
     val count2 = sc.accumulator(0)
+    //val count3 = sc.longAccumulator("")
 
     //sc.parallelize(array,2).map(_+"|").foreach(println)
 

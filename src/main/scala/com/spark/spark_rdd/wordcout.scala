@@ -32,6 +32,11 @@ object wordcout {
     //sc.textFile("wc.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).sortBy(_._2).saveAsObjectFile("D:\\tmp\\spark_rdd\\res_02")
     //sc.textFile("wc.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).saveAsTextFile("D:\\tmp\\spark_rdd\\res_03",classOf[Lz4Codec])
     //sc.textFile("wc.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).saveAsSequenceFile("D:\\tmp\\spark_rdd\\res_04")
+
+//    sc.textFile("wc.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).saveAsTextFile("D:\\tmp\\spark_rdd\\res_05",classOf[GzipCodec])
+    sc.textFile("wc.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).saveAsTextFile("D:\\tmp\\spark_rdd\\res_06",classOf[BZip2Codec])
+
+
     // todo ...
     //数据以压缩格式写入hdfs上
     //sc.textFile("wc.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_)

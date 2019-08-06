@@ -11,7 +11,7 @@ class StringCount extends UserDefinedAggregateFunction{
 
   ////输入数据的类型
   override def inputSchema: StructType = {
-    StructType(Array(StructField("1", StringType, true)))
+    StructType(Array(StructField("0", StringType, true)))
   }
 
   //聚合操作时，所处理的数据的类型
